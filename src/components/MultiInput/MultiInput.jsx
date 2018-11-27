@@ -17,7 +17,7 @@ export default class MultiInput extends Component {
     handleChange = (e) => {
         let inputs = [...this.state.inputs];
         inputs[e.target.dataset.id] = e.target.value;
-        this.setState({inputs})//, console.log(this.state.inputs));
+        this.setState({inputs});//, console.log(this.state.inputs));
     }
 
     handleInputTyping = (e) => {
@@ -33,7 +33,9 @@ export default class MultiInput extends Component {
 
     removeInput = (e) => {
         
-        let inputs = this.state.inputs.slice(e.target.dataset.id, 1);
+        let inputs = this.state.inputs;
+
+        delete inputs[e.target.dataset.id];
         
         this.setState({inputs});
     }
@@ -51,23 +53,42 @@ export default class MultiInput extends Component {
         return(<FormInput idx={idx} value={value} handleInputTyping={this.handleInputTyping} removeInput={this.removeInput} />);
     }
 
+    save = (e) => {
+        let inputs = this.state.inputs;
+        delete inputs[inputs.length - 1];
+        
+        this.setState({inputs});
+
+        console.log(this.state.inputs);
+    }
+
+    cancel = (e) => {
+        this.setState(() => ({ inputs: [] }));
+    }
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                <h4>Test</h4>
-                <div id="field-list">
-                {
-                    this.state.inputs.length === 0 ? this.renderSingleForm() : 
-                        this.state.inputs.map((value, idx) => {
-                            return(<FormInput idx={idx} value={value} handleInputTyping={this.handleInputTyping} removeInput={this.removeInput} key={idx} />)
-                        })
-                }
-
-
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-3"></div>
+                    <div className="col-sm-6">
+                        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                            <h4>Test</h4>
+                            <div id="field-list">
+                            {
+                                this.state.inputs.length === 0 ? this.renderSingleForm() : 
+                                this.state.inputs.map((value, idx) => {
+                                    return(<FormInput idx={idx} value={value} handleInputTyping={this.handleInputTyping} removeInput={this.removeInput} key={idx} />)
+                                })
+                            }
+                            </div>
+                            <div className="form-controls">
+                                <button onClick={this.cancel}>CANCEL</button> <button onClick={this.save}>SAVE</button> 
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <button>Cancel</button>
-                <button>Save</button>
-            </form>
+            </div>        
         );
     }
 }

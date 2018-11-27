@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import MultiInput from './components/MultiInput/MultiInput';
-import logo from './logo.svg';
+import './assets/mult-input.css';
 import './App.css';
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
         <MultiInput inputs={[]} />
-      </div>
     );
   }
 }

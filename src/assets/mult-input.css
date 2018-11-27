@@ -1,0 +1,96 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#wrapper {
+  background-color: #ffff;
+  margin: 0 auto;
+}
+
+form h4 {
+  padding-left: 14px;
+  padding-top: 10px;
+}
+
+.input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid gray;
+  width: 90%;
+  font-weight: 520;
+}
+
+.input:focus {
+  border-bottom: 2px solid blue;
+}
+
+form {
+  box-shadow: 1px 3px 6px 3px #888888;
+}
+
+.form-controls {
+  background-color: #e6f0fc;
+  width: 100%;
+}
+
+.form-fields {
+  padding-left: 14px;
+}
+
+.form-fields label {
+  display: block;
+  color: lightgray;
+  font-size: 0.8em;
+}
+
+.form-fields a {
+  margin-left: 5px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.form-controls {
+  margin-top: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 0.5px solid gray;
+  flex: 0 1 40px;
+
+  text-align: right;
+}
+
+.form-controls button {
+  
+  margin-right: 4px;
+  border: 0;
+  background-color: #e6f0fc;
+  font-size: 0.8em;
+  font-weight: bolder;
+  color: dimgrey;
+}
+
+.form-controls button:hover {
+  color: #789ac7;
+}
+
+/*********************************** bootstrap ********************************************/
+.col-sm-3,
+.col-sm-6 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .col-sm-3,
+  .col-sm-6 {
+    float: left;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+}

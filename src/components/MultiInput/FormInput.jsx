@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class FromInput extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <div className="form-fields">
                 <label>test attribute</label>
                 <input type="text" className="input" data-id={this.props.idx} defaultValue={this.props.value} onKeyDown={this.props.handleInputTyping} />
-                { this.props.value ? (<button data-id={this.props.idx} onClick={this.props.removeInput}>X</button>) : "" }
+                { this.props.value ? (<a href="#/" data-id={this.props.idx} onClick={this.props.removeInput}>X</a>) : "" }
             </div>
         )
     }
-
 }
 
 FromInput.propTypes = {
